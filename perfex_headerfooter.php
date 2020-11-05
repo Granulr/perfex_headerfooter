@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 Module Name: Perfex Header & Footer
-Description: Allow you to enter custom css/javascript into the header and footer of the Perfex Admin & Client Frontend
+Description: Allow you to enter custom javascript into the header and footer of the Perfex Admin & Client Frontend
 Version: 1.0.1
 Author: Granulr Ltd
 Author URI: https://granulr.uk
@@ -14,6 +14,11 @@ define('PERFEX_HEADERFOOTER', 'perfex_headerfooter');
 
 // Setup our hooks
 hooks()->add_action('admin_init', 'perfex_headerfooter_setup_init_menu_items');
+
+hooks()->add_action('app_admin_head', 'headerfooter_js_admin_head');
+hooks()->add_action('app_admin_authentication_head', 'headerfooter_js_admin_head');
+//hooks()->add_action('app_customers_head', 'theme_style_clients_area_head');
+//hooks()->add_action('app_admin_authentication_head', 'theme_style_general_and_buttons');
 
 /**
 * Register activation module hook
@@ -48,12 +53,10 @@ function perfex_headerfooter_setup_init_menu_items()
             'view'     => PERFEX_HEADERFOOTER.'/admin/settings/headerfooter_js_settings',
             'position' => 95,
         ]);
-
-        // Add CSS Menu
-        $CI->app_tabs->add_settings_tab('headerfooter_css', [
-            'name'     => _l('headerfooter_css'),
-            'view'     => PERFEX_HEADERFOOTER.'/admin/settings/headerfooter_css_settings',
-            'position' => 95,
-        ]);
     }
+}
+
+function headerfooter_js_admin_head()
+{
+
 }
