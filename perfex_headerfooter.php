@@ -46,14 +46,14 @@ function perfex_headerfooter_setup_init_menu_items()
         $CI->app_tabs->add_settings_tab('headerfooter_js', [
             'name'     => _l('headerfooter_javascript'),
             'view'     => PERFEX_HEADERFOOTER.'/admin/settings/headerfooter_js_settings',
-            'position' => 90,
+            'position' => 95,
         ]);
 
         // Add CSS Menu
         $CI->app_tabs->add_settings_tab('headerfooter_css', [
             'name'     => _l('headerfooter_css'),
             'view'     => PERFEX_HEADERFOOTER.'/admin/settings/headerfooter_css_settings',
-            'position' => 91,
+            'position' => 95,
         ]);
     }
 }
